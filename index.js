@@ -9,6 +9,7 @@ class Sprite{
         this.position=position;
         this.velocity=velocity;
         this.height=150;
+        this.lastKey;
     }   
     draw(){
         c.fillStyle='green';
@@ -50,7 +51,9 @@ console.log(player);
 const keys={
 a:{pressed:false,}
 ,d:{pressed:false,}
-,w:{pressed:false,}
+,w:{pressed:false,},
+ArrowRight:{pressed:false,}
+,ArrowLeft:{pressed:false,}
 }
 
 let lastKey;
@@ -60,12 +63,23 @@ function animate(){
     c.fillRect(0,0,canvas.width,canvas.height);
     player.update();
     enemy.update();
- player.velocity.x=0;
 
+
+player.velocity.x=0;
+
+enemy.velocity.x=0;
+
+//player movement
     if(keys.a.pressed && lastKey==='a'){
         player.velocity.x=-1;
         }else if(keys.d.pressed && lastKey==='d'){
         player.velocity.x=1;
+    }
+    //enemy movement
+    if(keys.ArrowLeft.pressed && enemy.lastKey==='ArrowLeft'){
+        enemy.velocity.x=-1;
+        }else if(keys.ArrowRight.pressed && enemy.lastKey==='ArrowRight'){
+        enemy.velocity.x=1;
     }
     
 }
@@ -84,6 +98,18 @@ window.addEventListener('keydown',(event)=>{
            player.velocity.y=-10;
            lastKey='w';
             break;
+        case 'ArrowRight':
+              keys.ArrowRight.pressed=true;
+              enemy.lastKey='ArrowRight';
+            break;
+        case 'ArrowLeft':
+           keys.ArrowLeft.pressed=true;
+           enemy.lastKey='ArrowLeft';
+            break;
+        case 'ArrowUp':
+           enemy.velocity.y=-10;
+           
+            break;
         }
     console.log(event.key);;})
 
@@ -95,9 +121,13 @@ window.addEventListener('keyup',(event)=>{
         case 'a':
             keys.a.pressed=false;
             break;
-        case 'w':
-            keys.w.pressed=false;
-            break;    
+    //enemy keys
+        case 'ArrowRight':
+            keys.ArrowRight.pressed=false;
+            break;
+        case 'ArrowLeft':
+            keys.ArrowLeft.pressed=false;
+            break;
         }
 
     console.log(event.key);;})
