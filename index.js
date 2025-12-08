@@ -1,10 +1,10 @@
 const canvas= document.querySelector('canvas');
 const c=canvas.getContext('2d');
-canvas.width=1920;
-canvas.height=720;
+canvas.width=1024;
+canvas.height=576;
 c.fillRect(0,0,canvas.width,canvas.height);
 const gravity=0.7;
-class Sprite{
+    class Sprite{
     constructor({position,velocity,color='green',offset}){
         this.position=position;
         this.velocity=velocity;
