@@ -122,7 +122,7 @@ enemy.velocity.x=0;
         //detect for collision
  if(rectangularCollision({rectangle1:player,rectangle2:enemy}) && player.isAttacking){
      player.isAttacking=false;
-     console.log('hit');
+     document.querySelector('#enemyhealth').style.width='90%'; 
  }if(rectangularCollision({rectangle1:enemy,rectangle2:player}) && enemy.isAttacking){
      enemy.isAttacking=false;
      console.log('p2 hit');
