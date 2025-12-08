@@ -13,6 +13,7 @@ const gravity=0.7;
         this.width=50;
         this.color=color;
         this.isAttacking;
+        this.health=100; 
         this.attackBox={
             width:100,
             height:50,
@@ -20,7 +21,8 @@ const gravity=0.7;
             position:{
                 x:this.position.x,
                 y:this.position.y
-            }
+            },
+           
             
     }}
     draw(){
@@ -122,10 +124,12 @@ enemy.velocity.x=0;
         //detect for collision
  if(rectangularCollision({rectangle1:player,rectangle2:enemy}) && player.isAttacking){
      player.isAttacking=false;
-     document.querySelector('#enemyhealth').style.width='90%'; 
+     enemy.health-=10;
+     document.querySelector('#enemyhealth').style.width = enemy.health + '%'; 
  }if(rectangularCollision({rectangle1:enemy,rectangle2:player}) && enemy.isAttacking){
-     enemy.isAttacking=false;
-     console.log('p2 hit');
+     enemy.isAttacking=false; 
+     player.health-=10;
+     document.querySelector('#playerhealth').style.width =player.health +'%';
             
     }}
     
