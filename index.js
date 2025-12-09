@@ -132,7 +132,16 @@ enemy.velocity.x=0;
      document.querySelector('#playerhealth').style.width =player.health +'%';
             
     }}
-    
+let timer=10;
+function decreaseTimer(){
+    setTimeout(decreaseTimer,1000);
+    if(timer>0)   {
+    timer--;
+    document.querySelector('#timer').innerHTML=timer;
+    }}
+decreaseTimer();
+
+
 
 animate();
 window.addEventListener('keydown',(event)=>{
