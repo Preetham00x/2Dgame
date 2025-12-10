@@ -146,8 +146,9 @@ function decreaseTimer(){
 
     }else if(player.health>enemy.health){
         document.querySelector('#displayText').innerHTML='Preetham Wins';
-        document.querySelector('#displayText').style.display='flex';
-        clearTimeout(decreaseTimer);
+    }else if(enemy.health<player.health){
+        document.querySelector('#displayText').innerHTML='Enemy Wins';
+        
     }
 }
 }
