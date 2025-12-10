@@ -138,9 +138,14 @@ function decreaseTimer(){
     if(timer>0)   {
     timer--;
     document.querySelector('#timer').innerHTML=timer;
-    }}
+    }
+    if(player.health===enemy.health){
+        document.querySelector('#displayText').innerHTML='Tie';
+        clearTimeout(decreaseTimer);
+    }
+}
 decreaseTimer();
-
+ 
 
 
 animate();
