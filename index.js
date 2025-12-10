@@ -139,10 +139,17 @@ function decreaseTimer(){
     timer--;
     document.querySelector('#timer').innerHTML=timer;
     }
+    if(timer===0){
+            document.querySelector('#displayText').style.display='flex';
     if(player.health===enemy.health){
         document.querySelector('#displayText').innerHTML='Tie';
+
+    }else if(player.health>enemy.health){
+        document.querySelector('#displayText').innerHTML='Preetham Wins';
+        document.querySelector('#displayText').style.display='flex';
         clearTimeout(decreaseTimer);
     }
+}
 }
 decreaseTimer();
  
