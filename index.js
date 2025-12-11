@@ -132,7 +132,7 @@ enemy.velocity.x=0;
      document.querySelector('#playerhealth').style.width =player.health +'%';
             
     }}
-let timer=10;
+let timer=30;
 function decreaseTimer(){
     setTimeout(decreaseTimer,1000);
     if(timer>0)   {
@@ -146,7 +146,7 @@ function decreaseTimer(){
 
     }else if(player.health>enemy.health){
         document.querySelector('#displayText').innerHTML='Preetham Wins';
-    }else if(enemy.health<player.health){
+    }else if(player.health<enemy.health){
         document.querySelector('#displayText').innerHTML='Enemy Wins';
         
     }
